@@ -18,6 +18,9 @@ const description = Astro.props.description || site.description;
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="site-header">
@@ -44,7 +47,7 @@ const description = Astro.props.description || site.description;
           <span>{site.name}</span>
         </a>
         <p>
-          Security gateway and digital watchdog platform for Web2 and Web3 infrastructure.
+          Heimdall can see cryptocurrency as it grows. A watchtower for decentralized networks.
         </p>
       </div>
       <div class="footer-links">
@@ -66,19 +69,16 @@ const description = Astro.props.description || site.description;
 
 <style is:global>
   :root {
-    color-scheme: light;
-    --ink: #111827;
-    --muted: #5c6676;
-    --line: #d9dee8;
-    --panel: #ffffff;
-    --soft: #f6f8fb;
-    --accent: #06b6d4;
-    --accent-strong: #0e7490;
-    --gold: #f97316;
-    --blue: #2563eb;
-    --shadow: 0 18px 50px rgba(17, 24, 39, 0.1);
-    font-family:
-      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color-scheme: dark;
+    --bg-deep: #0A0A0F;
+    --bg-card: rgba(17, 17, 24, 0.6);
+    --ink: #F8FAFC;
+    --muted: #94A3B8;
+    --line: rgba(99, 102, 241, 0.2);
+    --accent: #6366F1;
+    --accent-secondary: #A855F7;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   * {
@@ -87,7 +87,7 @@ const description = Astro.props.description || site.description;
 
   body {
     margin: 0;
-    background: var(--soft);
+    background: var(--bg-deep);
     color: var(--ink);
     line-height: 1.6;
   }
@@ -111,8 +111,8 @@ const description = Astro.props.description || site.description;
     justify-content: space-between;
     gap: 24px;
     padding: 16px clamp(18px, 5vw, 64px);
-    border-bottom: 1px solid rgba(217, 222, 232, 0.88);
-    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid var(--line);
+    background: rgba(10, 10, 15, 0.85);
     backdrop-filter: blur(18px);
   }
 
@@ -123,6 +123,7 @@ const description = Astro.props.description || site.description;
     font-weight: 800;
     letter-spacing: 0;
     white-space: nowrap;
+    color: var(--ink);
   }
 
   .brand-mark {
@@ -131,7 +132,7 @@ const description = Astro.props.description || site.description;
     height: 34px;
     place-items: center;
     border-radius: 8px;
-    background: linear-gradient(135deg, #111827, #06b6d4);
+    background: linear-gradient(135deg, #6366F1, #A855F7);
     color: #fff;
     font-size: 17px;
   }
@@ -146,7 +147,7 @@ const description = Astro.props.description || site.description;
   }
 
   .site-nav a:hover {
-    color: var(--accent-strong);
+    color: var(--ink);
   }
 
   .menu-button {
@@ -156,7 +157,7 @@ const description = Astro.props.description || site.description;
     place-items: center;
     border: 1px solid var(--line);
     border-radius: 8px;
-    background: #fff;
+    background: rgba(17, 17, 24, 0.8);
   }
 
   .menu-button span {
@@ -178,7 +179,7 @@ const description = Astro.props.description || site.description;
 
   .eyebrow {
     margin: 0 0 14px;
-    color: var(--accent-strong);
+    color: var(--accent-secondary);
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -198,6 +199,7 @@ const description = Astro.props.description || site.description;
     font-size: clamp(42px, 8vw, 88px);
     line-height: 0.96;
     letter-spacing: 0;
+    color: var(--ink);
   }
 
   h2 {
@@ -206,12 +208,14 @@ const description = Astro.props.description || site.description;
     font-size: clamp(30px, 4vw, 52px);
     line-height: 1.05;
     letter-spacing: 0;
+    color: var(--ink);
   }
 
   h3 {
     margin: 0 0 10px;
     font-size: 21px;
     line-height: 1.2;
+    color: var(--ink);
   }
 
   p {
@@ -222,7 +226,7 @@ const description = Astro.props.description || site.description;
   .lead {
     max-width: 720px;
     margin-top: 24px;
-    color: #384252;
+    color: #cbd5e1;
     font-size: clamp(18px, 2vw, 22px);
   }
 
@@ -240,16 +244,26 @@ const description = Astro.props.description || site.description;
     justify-content: center;
     border-radius: 8px;
     padding: 12px 18px;
-    border: 1px solid var(--ink);
-    background: var(--ink);
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #6366F1, #A855F7);
     color: #fff;
     font-weight: 760;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
   }
 
   .button.secondary {
     border-color: var(--line);
-    background: #fff;
+    background: transparent;
     color: var(--ink);
+  }
+
+  .button.secondary:hover {
+    background: rgba(99, 102, 241, 0.1);
   }
 
   .grid {
@@ -260,14 +274,23 @@ const description = Astro.props.description || site.description;
 
   .card {
     border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
+    border-radius: 16px;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
     padding: 24px;
-    box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03);
+    box-shadow: 0 1px 0 rgba(99, 102, 241, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
   }
 
   .band {
-    background: #fff;
+    background: rgba(17, 17, 24, 0.4);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
 
   .site-footer {
@@ -275,13 +298,25 @@ const description = Astro.props.description || site.description;
     justify-content: space-between;
     gap: 32px;
     padding: 44px clamp(18px, 5vw, 64px);
-    border-top: 1px solid var(--line);
-    background: #fff;
+    border-top: 1px solid transparent;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent-secondary), transparent);
   }
 
   .site-footer p {
     max-width: 520px;
     margin-top: 12px;
+    color: var(--muted);
   }
 
   .footer-links {
@@ -293,13 +328,17 @@ const description = Astro.props.description || site.description;
     font-weight: 650;
   }
 
+  .footer-links a:hover {
+    color: var(--ink);
+  }
+
   .article-body {
     max-width: 760px;
   }
 
   .article-body p,
   .article-body li {
-    color: #354052;
+    color: #cbd5e1;
     font-size: 18px;
   }
 

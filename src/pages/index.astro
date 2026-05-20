@@ -7,35 +7,79 @@ import { getBlogPosts } from "@/lib/squidex";
 
 const posts = await getBlogPosts();
 const featured = posts.find((post) => post.featured) || posts[0];
+
+const features = [
+  {
+    icon: "◈",
+    title: "Growth Tracking",
+    description:
+      "See cryptocurrency as it grows. Track price movements, network adoption, and on-chain metrics across Bitcoin, Ethereum, and emerging assets.",
+  },
+  {
+    icon: "◉",
+    title: "Decentralized Vision",
+    description:
+      "Built for a future where individuals interact without depending on third parties. Bitcoin and cryptocurrencies as the foundation of a new era.",
+  },
+  {
+    icon: "◆",
+    title: "Network Insight",
+    description:
+      "Watch validator health, transaction flows, and protocol upgrades across decentralized networks from a single clear vantage point.",
+  },
+];
+
+const testimonials = [
+  {
+    initials: "MK",
+    name: "Marcus Kowalski",
+    role: "Early Bitcoin Adopter",
+    text: "Heimdall helped me spot the 2020 altcoin growth patterns months before they hit mainstream radar. The network insight is unlike anything else.",
+  },
+  {
+    initials: "LP",
+    name: "Lena Park",
+    role: "DeFi Researcher, BlockScope",
+    text: "The way Heimdall visualizes on-chain growth across multiple protocols is exactly what decentralized research needs. No third-party filters, just raw signal.",
+  },
+  {
+    initials: "TR",
+    name: "Tariq Rahman",
+    role: "Crypto Fund Analyst",
+    text: "I use Heimdall to track validator behavior and protocol adoption curves. It is the closest thing to having a watchtower over the entire decentralized landscape.",
+  },
+];
 ---
 
-<Layout title="Heimdall Land / Security gateway" description={site.description}>
+<Layout title="Heimdall / Cryptocurrency growth tracker" description={site.description}>
   <ArchiveNotice />
+
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Heimdall Land / Digital watchdog platform</p>
-      <h1>Watch every gate. Guard every chain.</h1>
+      <p class="eyebrow">Heimdall / See cryptocurrency as it grows</p>
+      <h1>Watch the decentralized landscape unfold.</h1>
       <p class="lead">
-        Heimdall Land is a security gateway and sentinel platform that monitors blockchain
-        infrastructure, protects API gateways, and alerts before threats become breaches.
+        Heimdall is a cryptocurrency growth tracker and decentralized network watchtower.
+        We believe in a future where individuals interact without third parties — and we built
+        the lens that lets you see that future forming in real time.
       </p>
       <div class="button-row">
-        <a class="button" href="/gateway/">Explore command OS</a>
+        <a class="button" href="/gateway/">Explore the watchtower</a>
         <a class="button secondary" href="/blog/">Read field notes</a>
       </div>
     </div>
-    <div class="hero-panel" aria-label="Heimdall Land security summary">
+    <div class="hero-panel" aria-label="Heimdall cryptocurrency summary">
       <div>
         <span>Core view</span>
-        <strong>Security gateway control</strong>
+        <strong>Cryptocurrency growth tracking</strong>
       </div>
       <div>
         <span>Signals</span>
-        <strong>Threat, anomaly, response</strong>
+        <strong>Price, adoption, network health</strong>
       </div>
       <div>
         <span>Guard stack</span>
-        <strong>Sentinel, gateway, ledger</strong>
+        <strong>Bitcoin, Ethereum, emerging chains</strong>
       </div>
     </div>
   </section>
@@ -56,25 +100,42 @@ const featured = posts.find((post) => post.featured) || posts[0];
     <div class="section-inner">
       <p class="eyebrow">Command architecture</p>
       <h2>One view for the messy first mile of growth.</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Work map</h3>
-          <p>Track channels, experiments, and launch pushes without hiding the pattern.</p>
-        </article>
-        <article class="card">
-          <h3>Funnel review</h3>
-          <p>Turn early movement into simple decisions for pages, offers, and follow-up.</p>
-        </article>
-        <article class="card">
-          <h3>Launch rhythm</h3>
-          <p>Connect campaign planning, content output, and deploy checks into one habit.</p>
-        </article>
+      <div class="grid features-grid">
+        {features.map((f) => (
+          <article class="card feature-card">
+            <div class="feature-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="section-inner">
+      <p class="eyebrow">Trusted by builders</p>
+      <h2>Teams that sleep better with Heimdall.</h2>
+      <div class="grid testimonials-grid">
+        {testimonials.map((t) => (
+          <article class="card testimonial-card">
+            <div class="testimonial-header">
+              <div class="avatar">{t.initials}</div>
+              <div>
+                <strong class="testimonial-name">{t.name}</strong>
+                <span class="testimonial-role">{t.role}</span>
+              </div>
+            </div>
+            <p class="testimonial-text">"{t.text}"</p>
+            <div class="stars">★★★★★</div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
   {featured && (
-    <section class="section band">
+    <section class="section">
       <div class="section-inner">
         <p class="eyebrow">Featured note</p>
         <h2>Start with the perimeter.</h2>
@@ -93,7 +154,9 @@ const featured = posts.find((post) => post.featured) || posts[0];
     align-items: center;
     padding: clamp(58px, 8vw, 110px) clamp(18px, 5vw, 64px) clamp(42px, 6vw, 80px);
     background:
-      linear-gradient(135deg, #0b0f19 0%, #1a103c 35%, #0c2d4d 70%, #0a1929 100%);
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168, 85, 247, 0.1), transparent),
+      linear-gradient(180deg, #0A0A0F 0%, #111118 100%);
     color: #fff;
   }
 
@@ -109,14 +172,15 @@ const featured = posts.find((post) => post.featured) || posts[0];
     display: grid;
     gap: 12px;
     padding: 18px;
-    border: 1px solid rgba(17, 24, 39, 0.14);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    background: rgba(17, 17, 24, 0.6);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.1);
   }
 
   .hero-panel div {
-    border-bottom: 1px solid #d9dee8;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.15);
     padding: 14px;
   }
 
@@ -126,7 +190,7 @@ const featured = posts.find((post) => post.featured) || posts[0];
 
   .hero-panel span {
     display: block;
-    color: #5c6676;
+    color: #94A3B8;
     font-size: 13px;
     font-weight: 800;
   }
@@ -134,7 +198,7 @@ const featured = posts.find((post) => post.featured) || posts[0];
   .hero-panel strong {
     display: block;
     margin-top: 5px;
-    color: #101828;
+    color: #F8FAFC;
     font-size: 20px;
     line-height: 1.2;
   }
@@ -151,8 +215,85 @@ const featured = posts.find((post) => post.featured) || posts[0];
   }
 
   .history-list p {
-    border-left: 4px solid #06b6d4;
+    border-left: 4px solid #6366F1;
     padding-left: 16px;
+    color: #cbd5e1;
+  }
+
+  .features-grid {
+    margin-top: 42px;
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+    color: #A855F7;
+    font-size: 22px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+
+  .testimonials-grid {
+    margin-top: 42px;
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .avatar {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366F1, #A855F7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    display: block;
+    color: #F8FAFC;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .testimonial-role {
+    display: block;
+    color: #94A3B8;
+    font-size: 14px;
+  }
+
+  .testimonial-text {
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .stars {
+    color: #fbbf24;
+    font-size: 16px;
+    letter-spacing: 2px;
   }
 
   @media (max-width: 860px) {
@@ -163,9 +304,6 @@ const featured = posts.find((post) => post.featured) || posts[0];
 
     .hero {
       min-height: auto;
-      background-size: 720px;
-      background-position: center bottom;
-      padding-bottom: 300px;
     }
   }
 </style>

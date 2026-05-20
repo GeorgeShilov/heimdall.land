@@ -6,23 +6,23 @@ import Layout from "@/layouts/Layout.astro";
   <section class="section">
     <div class="section-inner docs">
       <p class="eyebrow">Docs</p>
-      <h1>work command notes</h1>
-      <p class="lead">A concise reference for creating and deploying repeatable SaaS work surfaces.</p>
+      <h1>Watchtower reference</h1>
+      <p class="lead">A concise guide to using Heimdall for tracking cryptocurrency growth and network health.</p>
       <article class="card">
-        <h2>Required assets</h2>
+        <h2>Getting started</h2>
         <ul>
-          <li>Generate no more than 2-3 logo variants before choosing a primary Codex Workplace mark.</li>
-          <li>Create one hero background for the homepage and a reusable Open Graph visual.</li>
-          <li>Create at least three images per blog post: one cover and two inline images.</li>
-          <li>Store prompt metadata next to generated assets so the visual system is reproducible.</li>
+          <li>Connect to your preferred blockchain nodes or use Heimdall's default node endpoints.</li>
+          <li>Select the networks you want to track: Bitcoin, Ethereum, or emerging chains.</li>
+          <li>Configure growth alerts for price velocity, volume spikes, or network health changes.</li>
+          <li>Export historical data for research and long-term trend analysis.</li>
         </ul>
       </article>
       <article class="card">
-        <h2>Suggested environment variables</h2>
-        <pre><code>SITE_URL=https://codexworkplace.com
-FAL_KEY=...
-CLOUDFLARE_ACCOUNT_ID=...
-RAILWAY_TOKEN=...</code></pre>
+        <h2>Data sources</h2>
+        <pre><code>Bitcoin node: bitcoind RPC or public endpoint
+Ethereum node: geth / erigon / infura (fallback)
+Validator data: Beacon chain API
+Price feeds: Aggregated exchange data (no single source)</code></pre>
       </article>
     </div>
   </section>

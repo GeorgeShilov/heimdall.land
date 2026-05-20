@@ -4,10 +4,10 @@ import { site } from "@/config/site";
 
 <section class="archive-notice">
   <div>
-    <strong>Launch sprint</strong>
+    <strong>Domain archive</strong>
     <p>
-      Codex Workplace is being launched as a fast SaaS site pilot: domain, generated brand assets,
-      content, deployment, and iteration all move through one repeatable workflow.
+      Heimdall.land is being restored based on its original 2020 positioning:
+      a cryptocurrency growth tracker built for believers in decentralized technologies.
     </p>
   </div>
   <a href={`mailto:${site.email}`}>Start a sprint</a>
@@ -20,24 +20,31 @@ import { site } from "@/config/site";
     justify-content: space-between;
     gap: 18px;
     padding: 16px clamp(18px, 5vw, 64px);
-    border-bottom: 1px solid #d9dee8;
-    background: #fff7ed;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(17, 17, 24, 0.8);
+    color: #F8FAFC;
   }
 
   strong {
     display: block;
     margin-bottom: 2px;
+    color: #F8FAFC;
   }
 
   p {
     max-width: 860px;
     font-size: 14px;
+    color: #94A3B8;
   }
 
   a {
     flex: 0 0 auto;
-    color: #134e4a;
+    color: #A855F7;
     font-weight: 800;
+  }
+
+  a:hover {
+    color: #6366F1;
   }
 
   @media (max-width: 700px) {
