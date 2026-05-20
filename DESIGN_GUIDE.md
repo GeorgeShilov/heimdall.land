@@ -187,6 +187,30 @@ curl -X POST "https://fal.run/fal-ai/flux-pro/v1.1" \
 5. **Формат:** `web design mockup` — помогает AI понять, что это UI, а не фото
 6. **Избегай:** слишком длинных промптов (>500 символов), абстрактных описаний без UI-контекста
 
+### 5.6. Адаптация промпта под тематику проекта (webarchive)
+
+Перед генерацией дизайна **обязательно изучите тематику конкретного проекта:**
+
+- Если в проекте есть папка `webarchive/` — изучите её содержимое (скриншоты, тексты, референсы, старые версии сайта)
+- Если `webarchive/` отсутствует — проанализируйте `README.md`, `AGENTS.md`, контент страниц и название домена
+- Извлеките ключевые темы: **индустрия, целевая аудитория, продукт, визуальный стиль, брендовые цвета**
+
+**Адаптируйте промпт, заменяя generic SaaS-описание на конкретную тематику проекта:**
+
+| Без тематики | С тематикой из webarchive |
+|-------------|---------------------------|
+| `Modern SaaS website landing page UI design...` | `Modern crypto trading dashboard UI design, dark theme...` |
+| `fintech AI startup aesthetic` | `DeFi wallet security aesthetic, blockchain nodes visualization` |
+| `dashboard preview mockup` | `portfolio analytics chart mockup, real-time market data widgets` |
+
+**Правила адаптации:**
+- Замените слово `SaaS` на конкретный тип продукта (wallet, exchange, marketplace, gateway, etc.)
+- Добавьте 2–3 визуальных элемента, специфичных для ниши (например, для крипто — `chart candlesticks`, `node network map`, `wallet cards`)
+- Сохраните базовые дизайн-приёмы: `dark theme`, `glassmorphism`, `gradient accents`
+- Если в webarchive есть скриншоты — используйте их как референс для цветовой палитры
+
+> 💡 **Результат:** адаптированный промпт повышает релевантность генерации в 2–3 раза. AI лучше понимает контекст и генерирует дизайн, который соответствует реальной тематике проекта, а не generic шаблону.
+
 ---
 
 ## 6. Из референса в код (Astro)

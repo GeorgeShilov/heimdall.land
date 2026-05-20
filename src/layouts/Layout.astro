@@ -356,12 +356,13 @@ const description = Astro.props.description || site.description;
   @media (max-width: 780px) {
     .site-header {
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 12px;
     }
 
     .menu-button {
-      display: block;
+      display: grid;
+      flex-shrink: 0;
     }
 
     .site-nav {
