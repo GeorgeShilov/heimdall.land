@@ -78,7 +78,7 @@ const { post } = Astro.props;
   }
 
   .inline-images img {
-    width: 100%;
+    display: block; height: auto; max-width: 100%; width: 100%;
     border: 1px solid rgba(99, 102, 241, 0.2);
     border-radius: 16px;
     background: rgba(17, 17, 24, 0.6);
@@ -106,4 +106,5 @@ const { post } = Astro.props;
       grid-template-columns: 1fr;
     }
   }
+  .article-body :global(img) { max-width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 </style>
