@@ -23,7 +23,7 @@ export const fallbackPosts: BlogPost[] = [
     category: "General",
     tags: [],
     featured: false,
-    heroImage: "/assets/archive-grid.svg",
+    heroImage: "https://v3b.fal.media/files/b/0aa0bfd5/ERJxtxobTSZBnL3HhbFtP.jpg",
     inlineImages: [],
     referenceUrl: "https://guarda.com/",
     articleText: `
@@ -147,7 +147,7 @@ export const fallbackPosts: BlogPost[] = [
     category: "Analysis",
     tags: ["Bitcoin", "Growth", "Tracking"],
     featured: true,
-    heroImage: "/assets/archive-grid.svg",
+    heroImage: "https://v3b.fal.media/files/b/0aa0bfd5/WXJ0wWrLtaSh3T5BPeD55.jpg",
     inlineImages: ["/assets/identity-shield.svg", "/assets/wallet-ledger.svg"],
     articleText: `
       <p>Most market participants react to headlines. Heimdall was built to see growth before it becomes news. By combining price velocity, on-chain transaction volume, active address trends, and network hash rate, the platform surfaces early signals of cryptocurrency expansion that lagging indicators miss.</p>
@@ -164,7 +164,7 @@ export const fallbackPosts: BlogPost[] = [
     author: "Heimdall Team",
     category: "Philosophy",
     tags: ["Decentralization", "Bitcoin", "P2P"],
-    heroImage: "/assets/archive-grid.svg",
+    heroImage: "https://v3b.fal.media/files/b/0aa0bfdf/7yI_K6qOO4QiblrzEAFei.jpg",
     inlineImages: ["/assets/identity-shield.svg", "/assets/wallet-ledger.svg"],
     articleText: `
       <p>The internet was originally designed as a peer-to-peer network. Over decades, it consolidated into a handful of platforms that mediate nearly every human interaction. Decentralized technologies represent a return to the original vision — direct connections between individuals without rent-seeking intermediaries.</p>
@@ -181,7 +181,7 @@ export const fallbackPosts: BlogPost[] = [
     author: "Heimdall Team",
     category: "Operations",
     tags: ["Validators", "Monitoring", "Staking"],
-    heroImage: "/assets/archive-grid.svg",
+    heroImage: "https://v3b.fal.media/files/b/0aa0bfd6/OvRcNRzdqSmHfEVYd5Y6S.jpg",
     inlineImages: ["/assets/identity-shield.svg", "/assets/wallet-ledger.svg"],
     articleText: `
       <p>Proof-of-stake networks replace mining with validation, but the challenge of monitoring remains. A single app may depend on validators on three chains, oracles for price data, and indexers for query speed. When finality stalls, the question is rarely "what failed?" but "which validator dropped first, and how did it cascade?"</p>
@@ -198,7 +198,7 @@ export const fallbackPosts: BlogPost[] = [
     author: "Heimdall Team",
     category: "Strategy",
     tags: ["Portfolio", "Taxes", "Risk Management", "Tracking"],
-    heroImage: "/assets/archive-grid.svg",
+    heroImage: "https://v3b.fal.media/files/b/0aa0bfd6/NHqxS6dMuh5GdjR5pEJJx.jpg",
     inlineImages: ["/assets/identity-shield.svg", "/assets/wallet-ledger.svg"],
     articleText: `
       <p>The cryptocurrency market has matured far beyond the early days of a single Bitcoin wallet and a handful of exchange passwords. In 2026, the average active investor holds assets across six or more blockchains, participates in liquid staking, collects NFTs, and interacts with decentralized finance protocols that generate yield, fees, and taxable events at every turn. Trying to track this complexity with a spreadsheet is like navigating an ocean with a paper map: technically possible, but practically reckless. A comprehensive portfolio tracker is no longer a luxury for crypto enthusiasts; it has become an essential piece of infrastructure for anyone who takes their financial future seriously.</p>
