@@ -38,5 +38,5 @@ createServer((request, response) => {
   });
   createReadStream(file).pipe(response);
 }).listen(port, "0.0.0.0", () => {
-  console.log(`Codex Workplace site listening on ${port}`);
+  console.log(`Heimdall site listening on ${port}`);
 });
