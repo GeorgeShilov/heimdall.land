@@ -85,7 +85,7 @@ These files were important for a stable setup:
 - `astro.config.mjs`
 - `src/layouts/Layout.astro`
 - `src/config/site.ts`
-- `src/lib/squidex.ts`
+- ~~`src/lib/squidex.ts`~~ — **removed 2026-07-15**; blog uses `src/content/blog/`
 - `.env.example`
 - `Dockerfile`
 - `server.mjs`
@@ -143,8 +143,7 @@ Requirements:
 For Codex Workplace, generated assets are wired through:
 
 - homepage hero: `src/pages/index.astro`
-- blog fallback data: `src/data/blog.ts`
-- Squidex fallback mapping: `src/lib/squidex.ts`
+- blog content: `src/content/blog/*.md` (was `src/data/blog.ts` + Squidex until 2026-07-15)
 
 ## 7. Git + GitHub
 

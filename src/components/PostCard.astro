@@ -1,13 +1,30 @@
 ---
-import type { BlogPost } from "@/data/blog";
+/**
+ * Card for blog index. `slug` must be the content-collection entry slug
+ * (filename stem) so URLs stay https://heimdall.land/blog/{slug}/.
+ */
+export type PostCardData = {
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: Date | string;
+  category: string;
+  tags: string[];
+  heroImage?: string;
+};
 
-const { post } = Astro.props as { post: BlogPost };
+const { post } = Astro.props as { post: PostCardData };
+const hero = post.heroImage || "/assets/archive-grid.svg";
+const pub =
+  post.pubDate instanceof Date
+    ? post.pubDate
+    : new Date(post.pubDate);
 ---
 
 <article class="post-card">
-  <img src={post.heroImage} alt="" loading="lazy" />
+  <img src={hero} alt="" loading="lazy" />
   <div>
-    <p class="meta">{post.category} / {new Date(post.pubDate).toLocaleDateString("ru-RU")}</p>
+    <p class="meta">{post.category} / {pub.toLocaleDateString("ru-RU")}</p>
     <h3><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
     <p>{post.description}</p>
     <div class="tags">

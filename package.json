@@ -7,7 +7,6 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "seed:squidex": "node --experimental-strip-types scripts/seed-squidex.ts",
     "preview": "astro preview --host 127.0.0.1 --port 4173",
     "start": "node server.mjs"
   },
