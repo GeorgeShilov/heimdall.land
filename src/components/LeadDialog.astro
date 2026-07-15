@@ -1,8 +1,151 @@
 ---
 const email = "hello@heimdall.land";
 ---
-<dialog id="lead-dialog"><form class="lead-form" data-lead-form action={`https://formsubmit.co/ajax/${email}`} method="POST"><button class="close" type="button" data-close aria-label="Close">×</button><p class="eyebrow">Start a conversation</p><h2>Tell us what you are building.</h2><label>Name<input name="name" required autocomplete="name" /></label><label>Email<input name="email" type="email" required autocomplete="email" /></label><label>Project<textarea name="message" rows="4" placeholder="A few useful details"></textarea></label><input type="hidden" name="_subject" value="New website enquiry" /><button class="button" type="submit">Send request</button><p class="form-status" aria-live="polite"></p></form></dialog>
+
+<dialog id="lead-dialog">
+  <form
+    class="lead-form"
+    data-lead-form
+    action={`https://formsubmit.co/ajax/${email}`}
+    method="POST"
+  >
+    <button class="close" type="button" data-close aria-label="Close">×</button>
+    <p class="eyebrow">Start a conversation</p>
+    <h2>Tell us what you are watching.</h2>
+    <p class="sub">We will follow up about chains, validators, and the signals you need.</p>
+    <label
+      >Name
+      <input name="name" required autocomplete="name" placeholder="Your name" />
+    </label>
+    <label
+      >Email
+      <input name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+    </label>
+    <label
+      >Project
+      <textarea name="message" rows="4" placeholder="Networks, use case, timeline…"></textarea>
+    </label>
+    <input type="hidden" name="_subject" value="New Heimdall website enquiry" />
+    <button class="button" type="submit">Send request</button>
+    <p class="form-status" aria-live="polite"></p>
+  </form>
+</dialog>
+
 <script>
-const dialog=document.querySelector('#lead-dialog');document.querySelectorAll('[data-lead]').forEach((button)=>button.addEventListener('click',(event)=>{event.preventDefault();dialog?.showModal();}));dialog?.querySelector('[data-close]')?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',(event)=>{if(event.target===dialog)dialog.close();});document.querySelector('[data-lead-form]')?.addEventListener('submit',async(event)=>{event.preventDefault();const form=event.currentTarget;const status=form.querySelector('.form-status');status.textContent='Sending…';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw new Error();form.reset();status.textContent='Thank you! We have received your request and will contact you soon.';}catch{status.textContent='Please try again or email us directly.';}});
+  const dialog = document.querySelector("#lead-dialog");
+  document.querySelectorAll("[data-lead]").forEach((button) =>
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      dialog?.showModal();
+    })
+  );
+  dialog?.querySelector("[data-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  document.querySelector("[data-lead-form]")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const status = form.querySelector(".form-status");
+    status.textContent = "Sending…";
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error();
+      form.reset();
+      status.textContent =
+        "Thank you! We have received your request and will contact you soon.";
+    } catch {
+      status.textContent = "Please try again or email us directly.";
+    }
+  });
 </script>
-<style>dialog{width:min(560px,calc(100% - 28px));border:0;border-radius:24px;padding:0;background:#fff;color:#111;box-shadow:0 30px 100px #0008}dialog::backdrop{background:#07111dcc;backdrop-filter:blur(8px)}.lead-form{display:grid;gap:16px;padding:clamp(24px,5vw,44px);position:relative}.lead-form h2{margin:0}.lead-form label{display:grid;gap:7px;font-weight:700;font-size:14px}.lead-form input,.lead-form textarea{width:100%;border:1px solid #ccd2db;border-radius:10px;padding:12px;font:inherit}.close{position:absolute;right:18px;top:14px;border:0!important;background:transparent!important;color:#111!important;box-shadow:none!important;font-size:30px;cursor:pointer}.form-status{font-weight:700;margin:0}</style>
+
+<style>
+  dialog {
+    width: min(520px, calc(100% - 28px));
+    border: 1px solid var(--line, rgba(148, 163, 184, 0.18));
+    border-radius: 22px;
+    padding: 0;
+    background: linear-gradient(180deg, #101a2e, #0a1220);
+    color: #f1f5f9;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(34, 211, 238, 0.08);
+  }
+
+  dialog::backdrop {
+    background: rgba(4, 8, 14, 0.78);
+    backdrop-filter: blur(10px);
+  }
+
+  .lead-form {
+    display: grid;
+    gap: 14px;
+    padding: clamp(24px, 5vw, 36px);
+    position: relative;
+  }
+
+  .lead-form h2 {
+    margin: 0;
+    max-width: none;
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+  }
+
+  .sub {
+    margin: -4px 0 4px;
+    color: #8b9bb4;
+    font-size: 0.95rem;
+  }
+
+  .lead-form label {
+    display: grid;
+    gap: 7px;
+    font-weight: 650;
+    font-size: 13px;
+    color: #cbd5e1;
+  }
+
+  .lead-form input,
+  .lead-form textarea {
+    width: 100%;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit;
+    color: #f1f5f9;
+    background: rgba(7, 11, 18, 0.65);
+  }
+
+  .lead-form input:focus,
+  .lead-form textarea:focus {
+    outline: none;
+    border-color: rgba(34, 211, 238, 0.55);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+  }
+
+  .close {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    border: 0 !important;
+    background: transparent !important;
+    color: #94a3b8 !important;
+    box-shadow: none !important;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #f1f5f9 !important;
+  }
+
+  .form-status {
+    font-weight: 700;
+    margin: 0;
+    color: #22d3ee;
+    font-size: 0.9rem;
+  }
+</style>

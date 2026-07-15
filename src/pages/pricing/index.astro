@@ -91,9 +91,7 @@ const plans = [
 
 <style>
   .pricing-hero {
-    background:
-      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(99, 102, 241, 0.08), transparent),
-      linear-gradient(180deg, #0A0A0F 0%, #111118 100%);
+    background: transparent;
   }
 
   .pricing-grid {
@@ -107,23 +105,24 @@ const plans = [
     flex-direction: column;
     gap: 24px;
     padding: 32px 28px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 1px solid var(--line);
     border-radius: 20px;
-    background: rgba(17, 17, 24, 0.6);
+    background: var(--bg-card);
     backdrop-filter: blur(16px);
     transition: all 0.3s ease;
   }
 
   .pricing-card:hover {
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.1);
+    border-color: rgba(34, 211, 238, 0.35);
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.08);
   }
 
   .pricing-card.popular {
     border: 1px solid transparent;
-    background: linear-gradient(#111118, #111118) padding-box,
-      linear-gradient(135deg, #6366F1, #A855F7) border-box;
-    box-shadow: 0 0 50px rgba(99, 102, 241, 0.2);
+    background:
+      linear-gradient(var(--bg-elevated), var(--bg-elevated)) padding-box,
+      var(--bifrost) border-box;
+    box-shadow: 0 0 50px rgba(34, 211, 238, 0.15);
     transform: translateY(-8px);
   }
 
@@ -134,10 +133,10 @@ const plans = [
     transform: translateX(-50%);
     padding: 6px 16px;
     border-radius: 100px;
-    background: linear-gradient(135deg, #6366F1, #A855F7);
-    color: #fff;
+    background: var(--bifrost);
+    color: #061018;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 750;
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
@@ -146,11 +145,11 @@ const plans = [
     font-size: 24px;
     font-weight: 700;
     margin: 0 0 10px;
-    color: #F8FAFC;
+    color: var(--ink);
   }
 
   .pricing-desc {
-    color: #94A3B8;
+    color: var(--muted);
     font-size: 15px;
     line-height: 1.5;
     margin: 0 0 20px;
@@ -165,12 +164,12 @@ const plans = [
   .pricing-price strong {
     font-size: 36px;
     font-weight: 800;
-    color: #F8FAFC;
+    color: var(--ink);
     margin: 0;
   }
 
   .pricing-price span {
-    color: #94A3B8;
+    color: var(--muted);
     font-size: 14px;
   }
 
@@ -198,8 +197,8 @@ const plans = [
     height: 20px;
     place-items: center;
     border-radius: 50%;
-    background: rgba(99, 102, 241, 0.2);
-    color: #6366F1;
+    background: rgba(34, 211, 238, 0.15);
+    color: var(--cyan);
     font-size: 11px;
     font-weight: 700;
     flex-shrink: 0;
@@ -211,34 +210,35 @@ const plans = [
     min-height: 48px;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 999px;
     padding: 12px 20px;
-    font-weight: 700;
+    font-weight: 750;
     font-size: 15px;
     transition: all 0.2s ease;
     margin-top: auto;
   }
 
   .pricing-cta.primary {
-    background: linear-gradient(135deg, #6366F1, #A855F7);
-    color: #fff;
+    background: var(--bifrost);
+    color: #061018;
     border: none;
+    box-shadow: var(--glow-cyan);
   }
 
   .pricing-cta.primary:hover {
-    opacity: 0.92;
+    filter: brightness(1.05);
     transform: translateY(-1px);
   }
 
   .pricing-cta.secondary {
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    border: 1px solid var(--line-strong);
     background: transparent;
-    color: #F8FAFC;
+    color: var(--ink);
   }
 
   .pricing-cta.secondary:hover {
-    background: rgba(99, 102, 241, 0.1);
-    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.35);
   }
 
   @media (max-width: 780px) {

@@ -9,20 +9,19 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout title="Blog">
-  <section class="section">
+  <section class="section blog-hero">
     <div class="section-inner">
-      <p class="eyebrow">Blog</p>
-      <h1>Field notes from the decentralized frontier.</h1>
+      <p class="eyebrow">Field notes</p>
+      <h1>Signals from the decentralized frontier.</h1>
       <p class="lead">
-        On-chain analysis, network health signals, protocol upgrades, and practical guides for
-        tracking cryptocurrency growth across Bitcoin, Ethereum, and emerging chains.
+        On-chain analysis, network health, protocol upgrades, and practical guides for tracking
+        cryptocurrency growth across Bitcoin, Ethereum, and emerging chains.
       </p>
       <div class="post-grid">
         {
           posts.map((entry) => (
             <PostCard
               post={{
-                // entry.slug = filename stem = live URL segment (do not use title)
                 slug: entry.slug,
                 title: entry.data.title,
                 description: entry.data.description,
@@ -40,14 +39,24 @@ const posts = (await getCollection("blog")).sort(
 </Layout>
 
 <style>
+  .blog-hero h1 {
+    max-width: 16ch;
+  }
+
   .post-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
-    margin-top: 42px;
+    margin-top: 48px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
+    .post-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
     .post-grid {
       grid-template-columns: 1fr;
     }

@@ -1,5 +1,558 @@
 ---
-import Layout from '@/layouts/Layout.astro'; import LeadDialog from '@/components/LeadDialog.astro';
+import Layout from "@/layouts/Layout.astro";
+import LeadDialog from "@/components/LeadDialog.astro";
+import { site } from "@/config/site";
+
+const signals = [
+  { label: "BTC velocity", value: "+12.4%", tone: "up" },
+  { label: "ETH active addr", value: "1.8M", tone: "neutral" },
+  { label: "Validator health", value: "99.2%", tone: "up" },
+  { label: "Bridge risk", value: "Watch", tone: "warn" },
+];
+
+const pillars = [
+  {
+    kicker: "01 · Observe",
+    title: "See growth before headlines",
+    body: "Combine price velocity, on-chain volume, and address trends into a single lens across Bitcoin, Ethereum, and emerging networks.",
+  },
+  {
+    kicker: "02 · Validate",
+    title: "Node-native truth",
+    body: "Ingest consensus and activity signals from direct node connections — not delayed third-party dashboards.",
+  },
+  {
+    kicker: "03 · Act",
+    title: "Alert when topology shifts",
+    body: "Surface validator stress, adoption pivots, and anomaly bands while there is still time to rebalance risk.",
+  },
+];
+
+const capabilities = [
+  {
+    title: "Cross-chain radar",
+    body: "Normalize positions and growth metrics across L1s, L2s, and staking derivatives.",
+    icon: "◈",
+  },
+  {
+    title: "Validator telemetry",
+    body: "Attestation quality, proposal cadence, slashing history, and peer health in one panel.",
+    icon: "◎",
+  },
+  {
+    title: "Decentralization map",
+    body: "Track node distribution, miner concentration, and upgrade participation — topology over marketing.",
+    icon: "⬡",
+  },
+  {
+    title: "Archive & research",
+    body: "Keep historical chain state for long-horizon analysis instead of ephemeral screenshots.",
+    icon: "▣",
+  },
+];
 ---
-<Layout title="Open-world cartography"><div class="atlas"><section class="map"><nav><b>HEIMDALL.LAND</b><span>Cartographic observatory</span><button data-lead>Join an expedition</button></nav><img src="/assets/generated/hero-observatory.jpg" alt="Fantasy cartographic observatory landscape"/><div class="coordinates">64°08′N<br/>21°56′W</div><div class="map-title"><p>Field atlas / volume 04</p><h1>Map the worlds<br/>worth entering.</h1></div><ul class="legend"><li><i class="gold"/>Discovered</li><li><i class="blue"/>Under survey</li><li><i/>Unknown</li></ul></section><section class="log"><header><p>EXPEDITION LOG</p><h2>Every place begins as a question.</h2></header><article><span>01</span><div><h3>Observe</h3><p>Read the culture, systems and strange edges of a world.</p></div></article><article><span>02</span><div><h3>Chart</h3><p>Turn scattered signals into a legible field guide.</p></div></article><article><span>03</span><div><h3>Gather</h3><p>Bring explorers, builders and stories onto the same map.</p></div></article></section><section class="crew"><div><small>THE OBSERVATORY CREW</small><h2>Human eyes on digital terrain.</h2><p>Researchers, mapmakers and world-builders working between geography, games and online culture.</p><button data-lead>Send a signal</button></div><img src="/assets/generated/mapping-team.jpg" alt="Mapping team in a modern observatory"/></section><LeadDialog /></div></Layout>
-<style>:global(.site-header),:global(.site-footer){display:none}.atlas{background:#e9e4d5;color:#15261f;font-family:Arial,sans-serif}.map{position:relative;height:100vh;overflow:hidden}.map>img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.1)}.map nav{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:24px 4vw;color:white;border-bottom:1px solid #ffffff66}.map nav button,.crew button{border:1px solid currentColor;border-radius:100px;background:transparent;color:inherit;padding:10px 18px}.map-title{position:absolute;bottom:8vw;left:5vw;color:white}.map-title h1{font-family:Georgia,serif;font-size:clamp(4rem,9vw,9rem);line-height:.86;margin:.15em 0;text-shadow:0 4px 30px #0006}.coordinates{position:absolute;right:4vw;top:22%;background:#e9e4d5;padding:18px;font-weight:700}.legend{position:absolute;right:4vw;bottom:6vw;background:#e9e4d5;padding:20px 28px;list-style:none}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;background:#182a24;margin-right:10px}.legend .gold{background:#d29c35}.legend .blue{background:#4d7c8d}.log{display:grid;grid-template-columns:1.6fr repeat(3,1fr);padding:8vw 4vw}.log>*{padding:24px;border-left:1px solid #647269}.log h2{font:3.5rem Georgia,serif}.log article span{font-size:4rem;color:#a99058}.crew{display:grid;grid-template-columns:1fr 1.2fr;background:#183229;color:#eee9dc;align-items:center}.crew div{padding:7vw}.crew h2{font:clamp(3rem,6vw,6rem)/.95 Georgia,serif}.crew img{width:100%;height:650px;object-fit:cover}@media(max-width:760px){.map nav span{display:none}.legend{display:none}.log{grid-template-columns:1fr}.log>*{border-left:0;border-top:1px solid}.crew{grid-template-columns:1fr}.crew img{height:440px}}</style>
+
+<Layout title="On-chain watchtower" description={site.description}>
+  <section class="hero section">
+    <div class="section-inner hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Network observatory · multi-chain</p>
+        <h1>
+          Watch crypto grow
+          <span class="grad-text">before the crowd does.</span>
+        </h1>
+        <p class="lead">
+          Heimdall is the watchtower for decentralized networks — price, on-chain adoption, and
+          validator health in one clear view. Built for people who refuse third-party gatekeepers.
+        </p>
+        <div class="button-row">
+          <button class="button" type="button" data-lead>Request access</button>
+          <a class="button secondary" href="/gateway/">Explore the watchtower</a>
+        </div>
+        <ul class="trust-row">
+          <li>Direct node feeds</li>
+          <li>No exchange lock-in</li>
+          <li>Research-grade history</li>
+        </ul>
+      </div>
+
+      <div class="hero-panel" aria-hidden="true">
+        <div class="panel-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <code>heimdall · live signals</code>
+        </div>
+        <div class="signal-list">
+          {
+            signals.map((s) => (
+              <div class={`signal-row tone-${s.tone}`}>
+                <span class="signal-label">{s.label}</span>
+                <span class="signal-bar"><i style={`--w:${s.tone === "warn" ? "42%" : s.tone === "up" ? "78%" : "62%"}`} /></span>
+                <span class="signal-value">{s.value}</span>
+              </div>
+            ))
+          }
+        </div>
+        <div class="panel-footer">
+          <span class="pulse"></span>
+          Streaming consensus samples · US-West edge
+        </div>
+        <div class="panel-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ticker band" aria-label="Positioning">
+    <div class="ticker-track">
+      {
+        [
+          "Bitcoin",
+          "Ethereum",
+          "Proof-of-stake",
+          "Validator health",
+          "On-chain volume",
+          "Active addresses",
+          "Bridge exposure",
+          "Decentralization",
+        ].map((item) => <span>{item}</span>)
+      }
+      {
+        [
+          "Bitcoin",
+          "Ethereum",
+          "Proof-of-stake",
+          "Validator health",
+          "On-chain volume",
+          "Active addresses",
+          "Bridge exposure",
+          "Decentralization",
+        ].map((item) => <span>{item}</span>)
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">Why Heimdall</p>
+        <h2>A clear vantage point on a fragmented landscape.</h2>
+        <p class="lead">
+          Most tools react to headlines. Heimdall is built to read leading indicators — the quiet
+          shifts in usage, validation, and topology that precede price narratives.
+        </p>
+      </div>
+      <div class="pillar-grid">
+        {
+          pillars.map((p) => (
+            <article class="card pillar">
+              <p class="kicker">{p.kicker}</p>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="section-inner">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">Capabilities</p>
+          <h2>Everything the watchtower needs to stay honest.</h2>
+        </div>
+        <a class="button secondary" href="/docs/">Read the docs</a>
+      </div>
+      <div class="bento">
+        {
+          capabilities.map((c, i) => (
+            <article class={`card bento-item bento-${i + 1}`}>
+              <span class="icon">{c.icon}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))
+        }
+        <article class="card bento-item bento-cta">
+          <p class="kicker">Next step</p>
+          <h3>Bring your chains into view.</h3>
+          <p>Tell us which networks and validators matter — we map the signal stack around them.</p>
+          <button class="button" type="button" data-lead>Talk to the team</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner cta-band">
+      <div>
+        <p class="eyebrow">Access</p>
+        <h2>See the revolution without the intermediaries.</h2>
+        <p class="lead">
+          {site.launchContext[1]}
+        </p>
+      </div>
+      <div class="button-row">
+        <button class="button" type="button" data-lead>Request access</button>
+        <a class="button secondary" href="/blog/">Field notes</a>
+      </div>
+    </div>
+  </section>
+
+  <LeadDialog />
+</Layout>
+
+<style>
+  .hero {
+    padding-top: clamp(48px, 8vw, 88px);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  .grad-text {
+    display: block;
+    background: var(--bifrost);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-family: var(--mono);
+  }
+
+  .trust-row li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .trust-row li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 10px var(--success);
+  }
+
+  .hero-panel {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: linear-gradient(165deg, rgba(16, 26, 46, 0.95), rgba(8, 12, 22, 0.92));
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    padding: 18px 18px 16px;
+  }
+
+  .panel-glow {
+    position: absolute;
+    inset: auto -20% -40% 20%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.22), transparent 65%);
+    pointer-events: none;
+  }
+
+  .panel-chrome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+
+  .panel-chrome .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #334155;
+  }
+
+  .panel-chrome .dot:nth-child(1) {
+    background: #fb7185;
+  }
+  .panel-chrome .dot:nth-child(2) {
+    background: #fbbf24;
+  }
+  .panel-chrome .dot:nth-child(3) {
+    background: #34d399;
+  }
+
+  .panel-chrome code {
+    margin-left: auto;
+    font-family: inherit;
+    opacity: 0.85;
+  }
+
+  .signal-list {
+    display: grid;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .signal-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(7, 11, 18, 0.45);
+  }
+
+  .signal-label {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+
+  .signal-bar {
+    display: block;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.12);
+    overflow: hidden;
+  }
+
+  .signal-bar i {
+    display: block;
+    height: 100%;
+    width: var(--w, 50%);
+    border-radius: inherit;
+    background: var(--bifrost);
+  }
+
+  .signal-value {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cyan);
+  }
+
+  .tone-warn .signal-value {
+    color: var(--amber);
+  }
+
+  .panel-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    }
+  }
+
+  .ticker {
+    padding: 14px 0;
+    overflow: hidden;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: marquee 36s linear infinite;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ticker-track span::before {
+    content: "✦";
+    margin-right: 40px;
+    color: rgba(34, 211, 238, 0.45);
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .section-head {
+    margin-bottom: clamp(32px, 5vw, 48px);
+  }
+
+  .section-head .lead {
+    margin-top: 14px;
+  }
+
+  .section-head.split {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .pillar .kicker,
+  .bento-cta .kicker {
+    margin: 0 0 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .pillar p:last-child {
+    margin-top: 8px;
+    line-height: 1.65;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .bento-item {
+    grid-column: span 2;
+    min-height: 180px;
+  }
+
+  .bento-1 {
+    grid-column: span 3;
+  }
+
+  .bento-2 {
+    grid-column: span 3;
+  }
+
+  .bento-cta {
+    grid-column: span 2;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.16), transparent 50%),
+      var(--bg-card);
+  }
+
+  .bento-cta .button {
+    margin-top: 18px;
+  }
+
+  .icon {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    background: rgba(34, 211, 238, 0.08);
+    color: var(--cyan);
+    font-size: 1rem;
+  }
+
+  .cta-band {
+    display: grid;
+    grid-template-columns: 1.4fr auto;
+    gap: 28px;
+    align-items: center;
+    padding: clamp(28px, 4vw, 40px);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background:
+      linear-gradient(120deg, rgba(34, 211, 238, 0.08), rgba(129, 140, 248, 0.08) 50%, rgba(251, 191, 36, 0.06)),
+      rgba(12, 18, 32, 0.8);
+    box-shadow: var(--shadow);
+  }
+
+  .cta-band h2 {
+    max-width: 16ch;
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid,
+    .section-head.split,
+    .cta-band {
+      grid-template-columns: 1fr;
+    }
+
+    .section-head.split {
+      display: grid;
+      align-items: start;
+    }
+
+    .pillar-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bento {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-item,
+    .bento-1,
+    .bento-2,
+    .bento-cta {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .signal-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track,
+    .pulse {
+      animation: none;
+    }
+  }
+</style>

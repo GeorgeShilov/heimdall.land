@@ -79,17 +79,45 @@ const pubDate = data.pubDate;
 
   .article-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 310px;
-    gap: 42px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 36px;
     align-items: start;
   }
 
+  aside.card {
+    position: sticky;
+    top: 96px;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.1), transparent 55%),
+      var(--bg-card);
+  }
+
   aside h2 {
-    font-size: 22px;
+    font-size: 1rem;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  aside p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
   }
 
   aside p + p {
-    margin-top: 18px;
+    margin-top: 16px;
+  }
+
+  aside strong {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   .inline-images {
